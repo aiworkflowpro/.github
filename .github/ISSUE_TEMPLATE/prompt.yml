@@ -1,0 +1,50 @@
+name: Prompt didn't work
+description: A playbook prompt or step did not do what the video or README shows
+labels: [playbook]
+body:
+  - type: input
+    id: repo
+    attributes:
+      label: Repo and version
+      description: Which playbook, and which release or commit?
+      placeholder: awp-playbook-knowledgebase-skeleton v1.0.0
+    validations:
+      required: true
+  - type: input
+    id: step
+    attributes:
+      label: Step or prompt
+      description: Which step folder or prompt file did you paste?
+      placeholder: steps/03-business/prompt.md
+    validations:
+      required: true
+  - type: input
+    id: agent
+    attributes:
+      label: Agent and model
+      description: The tool, its version, and the model it ran.
+      placeholder: Claude Code · Opus, or Cursor · GPT
+    validations:
+      required: true
+  - type: dropdown
+    id: os
+    attributes:
+      label: Operating system
+      options: [macOS, Linux, Windows, Other]
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: What you expected
+      description: What the video or README says should happen.
+    validations:
+      required: true
+  - type: textarea
+    id: actual
+    attributes:
+      label: What happened
+      description: What the agent did instead. Paste the agent's last message or error, and the output of `pwd`.
+      render: text
+    validations:
+      required: true
